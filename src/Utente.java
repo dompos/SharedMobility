@@ -7,7 +7,7 @@ public class Utente {
      * <p>
      * param: id, nome, cognome, codice fiscale, credito residuo, casco, patente.
      */
-    private String id; // stringa generata da metodo registrazione() in main()
+    private int id; // stringa generata da metodo registrazione() in main()
     private String nome;
     private String cognome;
     private String codiceFiscale;
@@ -30,11 +30,11 @@ public class Utente {
     /**
      * Getters e Setters
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

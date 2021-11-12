@@ -1,6 +1,9 @@
 public abstract class VeicoloElettrico extends VeicoloMotore {
 
-    public VeicoloElettrico(double autonomia){
-        super(autonomia);
+    /**
+     * costruttore
+     */
+    public VeicoloElettrico(boolean casco, double autonomia){
+        super(casco,autonomia);
     }
 }

@@ -7,7 +7,7 @@ public class Utente {
      * <p>
      * param: id, nome, cognome, codice fiscale, credito residuo, casco, patente.
      */
-    private int id; // stringa generata da metodo registrazione() in main()
+    private int id;
     private String nome;
     private String cognome;
     private String codiceFiscale;

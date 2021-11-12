@@ -1,6 +1,7 @@
 public class Auto extends VeicoloTermico{
 
-    public Auto(double autonomia, String targa, Patente patente){
-        super(autonomia,targa,patente);
+    public Auto(boolean casco, double autonomia, String targa, Patente patente){
+
+        super(casco,autonomia,targa,patente);
     }
 }

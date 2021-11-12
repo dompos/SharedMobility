@@ -6,7 +6,6 @@ public abstract class VeicoloMotore extends Veicolo {
      * costruttore
      */
     public VeicoloMotore(boolean casco, double autonomia){
-
         super(casco);
         this.autonomia = autonomia;
     }

@@ -8,8 +8,8 @@ public abstract class VeicoloTermico extends VeicoloMotore{
     /**
      * costruttore
      */
-    public VeicoloTermico(double autonomia, String targa, Patente patente){
-        super(autonomia);
+    public VeicoloTermico(boolean casco, double autonomia, String targa, Patente patente){
+        super(casco, autonomia);
         this.targa = targa;
         this.patente = patente;
     }

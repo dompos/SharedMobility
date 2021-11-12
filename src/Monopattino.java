@@ -3,7 +3,8 @@ public class Monopattino extends VeicoloElettrico{
     /**
      * costruttore
      */
-    public Monopattino(double autonomia){
-        super(autonomia);
+    public Monopattino(boolean casco, double autonomia){
+
+        super(casco,autonomia);
     }
 }

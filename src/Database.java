@@ -24,7 +24,7 @@ public class Database {
     private HashSet<Integer> idVeicoliNoleggiati(){
         HashSet<Integer> veicoliNoleggiati = new HashSet<>();
         for (Noleggio noleggio : noleggi){
-            veicoliNoleggiati.add(noleggio.idVeicoloNoleggiato);
+            veicoliNoleggiati.add(noleggio.getIdVeicoloNoleggiato());
         }
         return veicoliNoleggiati;
     }

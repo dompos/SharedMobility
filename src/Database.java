@@ -139,13 +139,13 @@ public class Database {
      * Aggiunge un veicolo alla mappa dei veicoli
      * @param veicolo
      */
-    public void addVeicolo(Veicolo veicolo){ veicoli.put(veicolo.id, veicolo);}
+    public void addVeicolo(Veicolo veicolo){ veicoli.put(veicolo.getId(), veicolo);}
 
     /**
      * Rimuove un veicolo dalla mappa dei veicoli
      * @param veicolo
      */
-    public void removeVeicolo(Veicolo veicolo){ veicoli.remove(veicolo.id);}
+    public void removeVeicolo(Veicolo veicolo){ veicoli.remove(veicolo.getId());}
 
     /**
      * Aggiunge un noleggio alla lista dei noleggi

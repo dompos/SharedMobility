@@ -4,17 +4,37 @@ public class Database {
 
     private Map<Integer , Utente> utenti;
     private Map<Integer , Veicolo> veicoli;
-    private List<Noleggio> noleggi = new ArrayList();
+    private List<Noleggio> noleggi = new ArrayList<Noleggio>();
 
 
     /**
      * Costruisce un oggetto Database inserendo gli utenti e i veicoli
      * @param utenti
-     * @param veicoli
+     *
      */
-    public Database(Map<Integer, Utente> utenti, Map<Integer, Veicolo> veicoli) {
+    public Database(Map<Integer, Utente> utenti) {
         this.utenti = utenti;
-        this.veicoli = veicoli;
+        for (int i = 0; i < 30; i++){
+            Random random = new Random();
+            int r = random.nextInt(5);
+            switch(r){
+                case 0:
+                    veicoli.put(i, new Monopattino(true, 100));
+                    veicoli.get(i).setId(i);
+                case 1:
+                    veicoli.put(i, new Auto(false, 100, "AE450GT", Patente.B));
+                    veicoli.get(i).setId(i);
+                case 2:
+                    veicoli.put(i, new Furgone(false, 100, "FG670DT", Patente.B));
+                    veicoli.get(i).setId(i);
+                case 3:
+                    veicoli.put(i, new Scooter(true, 100, "ET573HY", Patente.A1));
+                    veicoli.get(i).setId(i);
+                case 4:
+                    veicoli.put(i, new Bicicletta(true));
+                    veicoli.get(i).setId(i);
+            }
+        }
     }
 
     /**
@@ -124,7 +144,7 @@ public class Database {
      * @param utente
      */
     public void addUtente(Utente utente){
-        utenti.put(utente.id, utente);
+        utenti.put(utente.getId(), utente);
     }
 
     /**
@@ -132,7 +152,7 @@ public class Database {
      * @param utente
      */
     public void removeUtente(Utente utente){
-        utenti.remove(utente.id);
+        utenti.remove(utente.getId());
     }
 
     /**

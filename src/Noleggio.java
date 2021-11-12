@@ -19,9 +19,15 @@ public class Noleggio {
     private int minimoUtilizzo = 300;
 
     /**
+     * veicolo noleggiato
+     */
+    private int idVeicoloNoleggiato;
+
+    /**
      * Costruttore
      */
-    public Noleggio(Veicolo veicolo, double tariffa){
+    public Noleggio(int idVeicoloNoleggiato, double tariffa){
+        this.idVeicoloNoleggiato = idVeicoloNoleggiato;
         this.tariffa = tariffa;
         this.inizio = new Date();
     }
@@ -61,4 +67,11 @@ public class Noleggio {
         this.minimoUtilizzo = minimoUtilizzo;
     }
 
+    public int getIdVeicoloNoleggiato() {
+        return idVeicoloNoleggiato;
+    }
+
+    public void setIdVeicoloNoleggiato(int idVeicoloNoleggiato) {
+        this.idVeicoloNoleggiato = idVeicoloNoleggiato;
+    }
 }

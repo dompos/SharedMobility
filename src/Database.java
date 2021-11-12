@@ -70,7 +70,7 @@ public class Database {
      * @param veicoloScelto
      * @return boolean
      */
-    public boolean isDisponibile(Automobile veicoloScelto){
+    public boolean isDisponibile(Auto veicoloScelto){
         Set<Integer> idVeicoliScelti = new HashSet<>();
         Set<Integer> veicoliNoleggiati = idVeicoliNoleggiati();
         for (int key : veicoli.keySet()){// creo un HashSet contenente tutti gli id dei veicoli che corrispondono al tipo di veicolo scelto
@@ -106,7 +106,7 @@ public class Database {
      * @param veicoloScelto
      * @return boolean
      */
-    public boolean isDisponibile(Furgoncino veicoloScelto){
+    public boolean isDisponibile(Furgone veicoloScelto){
         Set<Integer> idVeicoliScelti = new HashSet<>();
         Set<Integer> veicoliNoleggiati = idVeicoliNoleggiati();
         for (int key : veicoli.keySet()){// creo un HashSet contenente tutti gli id dei veicoli che corrispondono al tipo di veicolo scelto

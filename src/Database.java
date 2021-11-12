@@ -3,7 +3,7 @@ import java.util.*;
 public class Database {
 
     private Map<Integer , Utente> utenti;
-    private Map<Integer , Veicolo> veicoli;
+    private Map<Integer , Veicolo> veicoli = new HashMap<Integer, Veicolo>();
     private List<Noleggio> noleggi = new ArrayList<Noleggio>();
 
 
@@ -21,18 +21,23 @@ public class Database {
                 case 0:
                     veicoli.put(i, new Monopattino(true, 100));
                     veicoli.get(i).setId(i);
+                    break;
                 case 1:
                     veicoli.put(i, new Auto(false, 100, "AE450GT", Patente.B));
                     veicoli.get(i).setId(i);
+                    break;
                 case 2:
                     veicoli.put(i, new Furgone(false, 100, "FG670DT", Patente.B));
                     veicoli.get(i).setId(i);
+                    break;
                 case 3:
                     veicoli.put(i, new Scooter(true, 100, "ET573HY", Patente.A1));
                     veicoli.get(i).setId(i);
+                    break;
                 case 4:
                     veicoli.put(i, new Bicicletta(true));
                     veicoli.get(i).setId(i);
+                    break;
             }
         }
     }

@@ -3,13 +3,13 @@ import java.util.*;
 public class Database {
 
     private Map<Integer , Utente> utenti;
-    private Map<Integer , Veicolo> veicoli = new HashMap<Integer, Veicolo>();
-    private List<Noleggio> noleggi = new ArrayList<Noleggio>();
+    private Map<Integer , Veicolo> veicoli = new HashMap<>();
+    private List<Noleggio> noleggi = new ArrayList<>();
 
 
     /**
      * Costruisce un oggetto Database inserendo gli utenti e i veicoli
-     * @param utenti
+     * @param utenti Mappa di utenti
      *
      */
     public Database(Map<Integer, Utente> utenti) {
@@ -43,7 +43,7 @@ public class Database {
     }
 
     /**
-     * Ritorna un HashSet contenente gli id di tutti i veicoli neleggiati
+     * Ritorna un HashSet contenente gli id di tutti i veicoli noleggiati
      * @return HashSet<Integer>
      */
     private HashSet<Integer> idVeicoliNoleggiati(){
@@ -56,7 +56,7 @@ public class Database {
 
     /**
      * Restituisce true se il veicolo richiesto è disponibile, altrimenti false
-     * @param veicoloScelto
+     * @param veicoloScelto  Oggetto della classe del veicolo scelto dall'utente
      * @return boolean
      */
     public boolean isDisponibile(Monopattino veicoloScelto){
@@ -67,14 +67,12 @@ public class Database {
                 idVeicoliScelti.add(key);
             }
         }
-        if (veicoliNoleggiati.containsAll(idVeicoliScelti))
-            return false;
-        return true;
+        return !veicoliNoleggiati.containsAll(idVeicoliScelti);
     }
 
     /**
      * Restituisce true se il veicolo richiesto è disponibile, altrimenti false
-     * @param veicoloScelto
+     * @param veicoloScelto Oggetto della classe del veicolo scelto dall'utente
      * @return boolean
      */
     public boolean isDisponibile(Bicicletta veicoloScelto){
@@ -85,14 +83,12 @@ public class Database {
                 idVeicoliScelti.add(key);
             }
         }
-        if (veicoliNoleggiati.containsAll(idVeicoliScelti))
-            return false;
-        return true;
+        return !veicoliNoleggiati.containsAll(idVeicoliScelti);
     }
 
     /**
      * Restituisce true se il veicolo richiesto è disponibile, altrimenti false
-     * @param veicoloScelto
+     * @param veicoloScelto Oggetto della classe del veicolo scelto dall'utente
      * @return boolean
      */
     public boolean isDisponibile(Auto veicoloScelto){
@@ -103,14 +99,12 @@ public class Database {
                 idVeicoliScelti.add(key);
             }
         }
-        if (veicoliNoleggiati.containsAll(idVeicoliScelti))
-            return false;
-        return true;
+        return !veicoliNoleggiati.containsAll(idVeicoliScelti);
     }
 
     /**
      * Restituisce true se il veicolo richiesto è disponibile, altrimenti false
-     * @param veicoloScelto
+     * @param veicoloScelto Oggetto della classe del veicolo scelto dall'utente
      * @return boolean
      */
     public boolean isDisponibile(Scooter veicoloScelto){
@@ -121,14 +115,12 @@ public class Database {
                 idVeicoliScelti.add(key);
             }
         }
-        if (veicoliNoleggiati.containsAll(idVeicoliScelti))
-            return false;
-        return true;
+        return !veicoliNoleggiati.containsAll(idVeicoliScelti);
     }
 
     /**
      * Restituisce true se il veicolo richiesto è disponibile, altrimenti false
-     * @param veicoloScelto
+     * @param veicoloScelto Oggetto della classe del veicolo scelto dall'utente
      * @return boolean
      */
     public boolean isDisponibile(Furgone veicoloScelto){
@@ -139,14 +131,12 @@ public class Database {
                 idVeicoliScelti.add(key);
             }
         }
-        if (veicoliNoleggiati.containsAll(idVeicoliScelti))
-            return false;
-        return true;
+        return !veicoliNoleggiati.containsAll(idVeicoliScelti);
     }
 
     /**
      * Aggiunge un utente alla mappa di utenti
-     * @param utente
+     * @param utente Oggetto utente da aggiungere alla mappa
      */
     public void addUtente(Utente utente){
         utenti.put(utente.getId(), utente);
@@ -154,7 +144,7 @@ public class Database {
 
     /**
      * Rimuove un utente dalla mappa di utenti
-     * @param utente
+     * @param utente Oggetto utente da rimuovere
      */
     public void removeUtente(Utente utente){
         utenti.remove(utente.getId());
@@ -162,25 +152,25 @@ public class Database {
 
     /**
      * Aggiunge un veicolo alla mappa dei veicoli
-     * @param veicolo
+     * @param veicolo Veicolo da aggiungere
      */
     public void addVeicolo(Veicolo veicolo){ veicoli.put(veicolo.getId(), veicolo);}
 
     /**
      * Rimuove un veicolo dalla mappa dei veicoli
-     * @param veicolo
+     * @param veicolo Veicolo da rimuovere
      */
     public void removeVeicolo(Veicolo veicolo){ veicoli.remove(veicolo.getId());}
 
     /**
      * Aggiunge un noleggio alla lista dei noleggi
-     * @param noleggio
+     * @param noleggio Noleggio da aggiungere
      */
     public void addNoleggio(Noleggio noleggio){ noleggi.add(noleggio); }
 
     /**
      * Rimuove un noleggio dalla lista dei noleggi
-     * @param noleggio
+     * @param noleggio Noleggio da rimuovere
      */
     public void removeNoleggio(Noleggio noleggio){ noleggi.remove(noleggio); }
 }

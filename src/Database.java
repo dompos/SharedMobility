@@ -6,6 +6,17 @@ public class Database {
     private Map<Integer , Veicolo> veicoli = new HashMap<>();
     private List<Noleggio> noleggi = new ArrayList<>();
 
+    public Map<Integer, Utente> getUtenti() {
+        return utenti;
+    }
+
+    public Map<Integer, Veicolo> getVeicoli() {
+        return veicoli;
+    }
+
+    public List<Noleggio> getNoleggi() {
+        return noleggi;
+    }
 
     /**
      * Costruisce un oggetto Database inserendo gli utenti e i veicoli

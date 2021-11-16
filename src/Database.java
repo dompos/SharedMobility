@@ -57,7 +57,7 @@ public class Database {
      * Ritorna un HashSet contenente gli id di tutti i veicoli noleggiati
      * @return HashSet<Integer>
      */
-    private HashSet<Integer> idVeicoliNoleggiati(){
+    public HashSet<Integer> idVeicoliNoleggiati(){
         HashSet<Integer> veicoliNoleggiati = new HashSet<>();
         for (Noleggio noleggio : noleggi){
             veicoliNoleggiati.add(noleggio.getIdVeicoloNoleggiato());

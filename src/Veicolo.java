@@ -1,6 +1,6 @@
 
 
-public  class Veicolo {
+public abstract class Veicolo {
 			  
 	private int id;
 	 private double []  posizione = new double[] {0,0};

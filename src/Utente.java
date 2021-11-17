@@ -13,17 +13,21 @@ public class Utente {
     private double creditoResiduo;
     private boolean casco;
     private Patente patentiUtente;
+    private List<Noleggio> noleggiUtente=new ArrayList<>();
+
+
 
     /**
      * Costruttore Classe Utente
      */
-    public Utente(String nome, String cognome, String codiceFiscale, double creditoResiduo, boolean casco, Patente patenti) {
+    public Utente(String nome, String cognome, String codiceFiscale, double creditoResiduo, boolean casco, Patente patenti){
         this.nome = nome;
         this.cognome = cognome;
         this.codiceFiscale = codiceFiscale;
         this.creditoResiduo = creditoResiduo;
         this.casco = casco;
         this.patentiUtente = patenti;
+
     }
 
     /**
@@ -85,6 +89,14 @@ public class Utente {
         this.patentiUtente = patente;
     }
 
+    public List<Noleggio> getNoleggiUtente() {
+        return noleggiUtente;
+    }
+
+    public void setNoleggiUtente(List<Noleggio> noleggiUtente) {
+        this.noleggiUtente = noleggiUtente;
+    }
+
     /**
      * Creo ID Utente
      */
@@ -123,6 +135,7 @@ public class Utente {
                         if(auto  instanceof  Auto){
                             Noleggio noleggio = new Noleggio(s,15.70);
                             db.addNoleggio(noleggio);
+                            noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
                             return true;
                         }
@@ -146,6 +159,7 @@ public class Utente {
                         if(scooter  instanceof  Scooter){
                             Noleggio noleggio = new Noleggio(s,15.70);
                             db.addNoleggio(noleggio);
+                            noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
                             return true;
                         }
@@ -169,6 +183,7 @@ public class Utente {
                         if(furgone  instanceof  Furgone){
                             Noleggio noleggio = new Noleggio(s,15.70);
                             db.addNoleggio(noleggio);
+                            noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
                             return true;
                         }
@@ -192,6 +207,7 @@ public class Utente {
                         if(monop  instanceof  Monopattino){
                             Noleggio noleggio = new Noleggio(s,15.70);
                             db.addNoleggio(noleggio);
+                            noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
                             return true;
                         }
@@ -215,6 +231,7 @@ public class Utente {
                         if(bici  instanceof  Bicicletta){
                             Noleggio noleggio = new Noleggio(s,15.70);
                             db.addNoleggio(noleggio);
+                            noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
                             return true;
                         }

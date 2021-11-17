@@ -128,7 +128,7 @@ public class Utente {
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
-                    Set<Integer> idVeicoli = veicoli.keySet();
+                    Set<Integer> idVeicoli = new HashSet<>(veicoli.keySet());
                     idVeicoli.removeAll(idVeicoliNoleggiati);
                     for(Integer s : idVeicoli){
                         Veicolo auto = veicoli.get(s);
@@ -152,7 +152,7 @@ public class Utente {
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
-                    Set<Integer> idVeicoli = veicoli.keySet();
+                    Set<Integer> idVeicoli = new HashSet<>(veicoli.keySet());
                     idVeicoli.removeAll(idVeicoliNoleggiati);
                     for(Integer s : idVeicoli){
                         Veicolo scooter = veicoli.get(s);
@@ -176,7 +176,7 @@ public class Utente {
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
-                    Set<Integer> idVeicoli = veicoli.keySet();
+                    Set<Integer> idVeicoli = new HashSet<>(veicoli.keySet());
                     idVeicoli.removeAll(idVeicoliNoleggiati);
                     for(Integer s : idVeicoli){
                         Veicolo furgone = veicoli.get(s);
@@ -200,7 +200,7 @@ public class Utente {
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
-                    Set<Integer> idVeicoli = veicoli.keySet();
+                    Set<Integer> idVeicoli = new HashSet<>(veicoli.keySet());
                     idVeicoli.removeAll(idVeicoliNoleggiati);
                     for(Integer s : idVeicoli){
                         Veicolo monop = veicoli.get(s);
@@ -224,7 +224,7 @@ public class Utente {
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
-                    Set<Integer> idVeicoli = veicoli.keySet();
+                    Set<Integer> idVeicoli = new HashSet<>(veicoli.keySet());
                     idVeicoli.removeAll(idVeicoliNoleggiati);
                     for(Integer s : idVeicoli){
                         Veicolo bici = veicoli.get(s);

@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Utente {
@@ -254,7 +255,8 @@ public class Utente {
         List<Noleggio> noleggio = db.getNoleggi();
         for(Noleggio  n : noleggio){
             if(n.getIdVeicoloNoleggiato()==veicolo.getId()) {
-                db.removeNoleggio(n);
+                noleggiUtente.remove(n);
+                n.setFine(new Date());
                 System.out.println("Hai rilasciato il veicolo " + veicolo.getId());
                 return true;
             }

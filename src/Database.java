@@ -60,7 +60,8 @@ public class Database {
     public HashSet<Integer> idVeicoliNoleggiati(){
         HashSet<Integer> veicoliNoleggiati = new HashSet<>();
         for (Noleggio noleggio : noleggi){
-            veicoliNoleggiati.add(noleggio.getIdVeicoloNoleggiato());
+            if (noleggio.getFine() == null)
+                veicoliNoleggiati.add(noleggio.getIdVeicoloNoleggiato());
         }
         return veicoliNoleggiati;
     }

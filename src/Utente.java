@@ -115,8 +115,8 @@ public class Utente {
     }
 
     /**
-     * Gestione Prenotazione
-     * @return
+     * Ritorna true se il veicolo è stato prenotato, altrimenti false
+     * @return boolean
      */
     public boolean prenotaVeicolo(Database db) {
 
@@ -125,6 +125,10 @@ public class Utente {
         int r = sc.nextInt();
         switch (r) {
             case 1:
+                if (patentiUtente != Patente.B){
+                    System.out.println("La tua patente non ti permette di noleggiare questo veicolo");
+                    return false;
+                }
                 if(db.isDisponibile(new Auto(true, 100, "we345ty", Patente.B))){
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
@@ -135,6 +139,10 @@ public class Utente {
                         Veicolo auto = veicoli.get(s);
                         if(auto  instanceof  Auto){
                             Noleggio noleggio = new Noleggio(s,15.70);
+                            if (creditoResiduo < (noleggio.getTariffa() * (noleggio.getMinimoUtilizzo()/60.0))){
+                                System.out.println("Non hai abbastanza credito");
+                                return false;
+                            }
                             db.addNoleggio(noleggio);
                             noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
@@ -149,6 +157,10 @@ public class Utente {
                 }
                 break;
             case 2:
+                if (patentiUtente == Patente.NonPatentato){
+                    System.out.println("La tua patente non ti permette di noleggiare questo veicolo");
+                    return false;
+                }
                 if(db.isDisponibile(new Scooter(true, 100, "we345ty", Patente.B))){
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
@@ -159,6 +171,10 @@ public class Utente {
                         Veicolo scooter = veicoli.get(s);
                         if(scooter  instanceof  Scooter){
                             Noleggio noleggio = new Noleggio(s,15.70);
+                            if (creditoResiduo < (noleggio.getTariffa() * (noleggio.getMinimoUtilizzo()/60.0))){
+                                System.out.println("Non hai abbastanza credito");
+                                return false;
+                            }
                             db.addNoleggio(noleggio);
                             noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
@@ -173,7 +189,11 @@ public class Utente {
                 }
                 break;
             case 3:
-                if(db.isDisponibile(new Furgone(true, 100, "we345ty", Patente.B))){
+                if (patentiUtente != Patente.B){
+                    System.out.println("La tua patente non ti permette di noleggiare questo veicolo");
+                    return false;
+                }
+                if(db.isDisponibile(new Furgone(true, 100, "we345ty", Patente.B)) && patentiUtente == Patente.B){
 
                     Map<Integer,Veicolo> veicoli = db.getVeicoli();
                     Set<Integer> idVeicoliNoleggiati = db.idVeicoliNoleggiati();
@@ -183,6 +203,10 @@ public class Utente {
                         Veicolo furgone = veicoli.get(s);
                         if(furgone  instanceof  Furgone){
                             Noleggio noleggio = new Noleggio(s,15.70);
+                            if (creditoResiduo < (noleggio.getTariffa() * (noleggio.getMinimoUtilizzo()/60.0))){
+                                System.out.println("Non hai abbastanza credito");
+                                return false;
+                            }
                             db.addNoleggio(noleggio);
                             noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
@@ -207,6 +231,10 @@ public class Utente {
                         Veicolo monop = veicoli.get(s);
                         if(monop  instanceof  Monopattino){
                             Noleggio noleggio = new Noleggio(s,15.70);
+                            if (creditoResiduo < (noleggio.getTariffa() * (noleggio.getMinimoUtilizzo()/60.0))){
+                                System.out.println("Non hai abbastanza credito");
+                                return false;
+                            }
                             db.addNoleggio(noleggio);
                             noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
@@ -231,6 +259,10 @@ public class Utente {
                         Veicolo bici = veicoli.get(s);
                         if(bici  instanceof  Bicicletta){
                             Noleggio noleggio = new Noleggio(s,15.70);
+                            if (creditoResiduo < (noleggio.getTariffa() * (noleggio.getMinimoUtilizzo()/60.0))){
+                                System.out.println("Non hai abbastanza credito");
+                                return false;
+                            }
                             db.addNoleggio(noleggio);
                             noleggiUtente.add(noleggio);
                             System.out.println("Hai noleggiato il veicolo "+s);
@@ -257,7 +289,12 @@ public class Utente {
             if(n.getIdVeicoloNoleggiato()==veicolo.getId()) {
                 noleggiUtente.remove(n);
                 n.setFine(new Date());
+                if ( (n.getFine().getTime()-n.getInizio().getTime())/1000.0 <= n.getMinimoUtilizzo() )
+                    creditoResiduo -= n.getTariffa() * (n.getMinimoUtilizzo()/60.0);
+                else
+                    creditoResiduo -= (n.getTariffa() * ((n.getFine().getTime() - n.getInizio().getTime()) / 60000.0));
                 System.out.println("Hai rilasciato il veicolo " + veicolo.getId());
+                System.out.println("Sul conto hai: " + creditoResiduo);
                 return true;
             }
         }
